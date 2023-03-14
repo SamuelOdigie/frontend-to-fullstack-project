@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { login } from "../apis/auth";
-
+import { Link } from "wouter";
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +43,9 @@ const Login = ({ onLogin }) => {
         <button type="submit" className="btn btn-primary">
           Login
         </button>
+        <p className="mt-3">
+          Dont have an account? <Link to="/register">Log in here.</Link>
+        </p>
       </form>
     </div>
   );

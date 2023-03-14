@@ -11,6 +11,21 @@ const Home = () => {
       setProducts(response.data.products.slice(0, 3));
     });
   }, []);
+
+  const addToCart = (product) => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingItemIndex = cart.findIndex((item) => item.id === product.id);
+
+    if (existingItemIndex >= 0) {
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
   return (
     <div className="container">
       <Carousel>
@@ -50,11 +65,14 @@ const Home = () => {
         {products.map((product) => (
           <div className="col-sm-4" key={product.id}>
             <Card>
-              <Card.Img variant="top" src={product.imageUrl} />
+              <Card.Img variant="top" src={product.image} />
               <Card.Body>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>{product.description}</Card.Text>
-                <Button variant="primary">Add to Cart</Button>
+                <Card.Text>Price: {product.price}</Card.Text>
+                <Button variant="primary" onClick={() => addToCart(product)}>
+                  Add to Cart
+                </Button>
               </Card.Body>
             </Card>
           </div>
