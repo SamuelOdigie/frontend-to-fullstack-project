@@ -6,7 +6,7 @@ const Navbar = ({ isAuthenticated, handleLogout }) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" href="/">
-          Ecommerce
+          Tokyo Thrift
         </Link>
         <button
           className="navbar-toggler"

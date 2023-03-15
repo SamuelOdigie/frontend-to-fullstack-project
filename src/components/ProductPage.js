@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Card, Button, Col } from "react-bootstrap";
 import { getAllProducts } from "../apis/product";
 import { Link } from "wouter";
-import Cart from "./Cart";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -27,10 +26,10 @@ const ProductPage = () => {
 
   return (
     <div className="container">
-      <h2>Products</h2>
+      <h2 style={{ textAlign: "center", marginTop: "40px" }}>Products</h2>
       <div className="row">
         {products.map((product) => (
-          <Col md={4} key={product.id}>
+          <Col md={3} key={product.id}>
             <Card>
               <Card.Img variant="top" src={product.image} />
               <Card.Body>
@@ -40,6 +39,7 @@ const ProductPage = () => {
                 <Button
                   variant="primary"
                   onClick={() => handleAddToCart(product)}
+                  className="neon-pink-btn"
                 >
                   Add to Cart
                 </Button>
@@ -48,7 +48,7 @@ const ProductPage = () => {
           </Col>
         ))}
       </div>
-      {<Cart setShowCart={setShowCart} />}
+
       <Link href="/cart">
         <Button variant="secondary" className="mt-3">
           View Cart

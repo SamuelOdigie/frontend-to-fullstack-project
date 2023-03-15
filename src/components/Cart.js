@@ -23,13 +23,13 @@ const Cart = ({ setShowCart }) => {
         <div>
           <div className="row">
             {cart.map((product) => (
-              <Col md={4} key={product.id}>
+              <Col md={3} key={product.id}>
                 <Card>
                   <Card.Img variant="top" src={product.image} />
                   <Card.Body>
                     <Card.Title>{product.name}</Card.Title>
                     <Card.Text>{product.description}</Card.Text>
-                    <Card.Text>{product.price} USD</Card.Text>
+                    <Card.Text> £{product.price} </Card.Text>
                     <Button
                       variant="primary"
                       onClick={() => removeFromCart(product)}

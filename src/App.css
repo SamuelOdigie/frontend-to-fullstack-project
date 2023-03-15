@@ -1,0 +1,9 @@
+.neon-pink-btn {
+  background-color: #ff6ec7;
+  color: #fff;
+  border-color: #ff6ec7;
+}
+.neon-pink-btn:hover {
+  background-color: #f14b8d;
+  border-color: #f14b;
+}

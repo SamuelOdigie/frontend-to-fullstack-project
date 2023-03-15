@@ -19,7 +19,7 @@ const Login = ({ onLogin }) => {
 
   return (
     <div className="container">
-      <h1>Login</h1>
+      <h1 >Login</h1>
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
